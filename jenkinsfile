@@ -6,6 +6,7 @@ pipeline {
             echo "${BUILD_NUMBER}"
             echo "${env.BRANCH_NAME}"
             echo "branch_name="+ env.BRANCH_NAME
+            echo "GIT BRANCH="+ env.GIT_BRANCH
              sh 'printenv'
        }
        }
