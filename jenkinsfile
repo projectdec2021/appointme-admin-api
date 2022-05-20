@@ -4,7 +4,7 @@ pipeline {
       stage('Test') {
       when {
                 expression {
-                    env.BRANCH_NAME.contains("test")
+                    env.GIT_BRANCH.contains("test")
             }
             }
       steps { 
