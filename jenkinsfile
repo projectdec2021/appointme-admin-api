@@ -1,2 +1,10 @@
-
-echo "env.BRANCH_NAME"
+pipeline {
+  agent any 
+  stages {
+      stage('Test') {
+      steps { 
+            echo "Branch_name=env.BRANCH_NAME"
+       }
+       }
+       }
+       }
