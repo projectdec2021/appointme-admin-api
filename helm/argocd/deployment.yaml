@@ -58,24 +58,6 @@ spec:
           resources:
             {}
 ---
-apiVersion: v1
-kind: Service
-metadata:
-  labels:
-    app: mongo
-  name: mongo-lb
-spec:
-  ports:
-  - port: 27017
-    protocol: TCP
-    targetPort: 27017
-    nodePort: 31050
-  selector:
-    app: mongo
-  type: LoadBalancer
-status:
-  loadBalancer: {}
----
 # Source: admin-api/templates/tests/test-connection.yaml
 apiVersion: v1
 kind: Pod
