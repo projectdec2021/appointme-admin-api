@@ -11,28 +11,6 @@ metadata:
     app.kubernetes.io/version: "1.16.0"
     app.kubernetes.io/managed-by: Helm
 ---
-# Source: admin-api/templates/service.yaml
-apiVersion: v1
-kind: Service
-metadata:
-  name: release-name-admin-api
-  labels:
-    helm.sh/chart: admin-api-0.1.0
-    app.kubernetes.io/name: admin-api
-    app.kubernetes.io/instance: release-name
-    app.kubernetes.io/version: "1.16.0"
-    app.kubernetes.io/managed-by: Helm
-spec:
-  type: NodePort
-  ports:
-    - port: 5050
-      targetPort: 5050
-      nodePort: 30050
-      name: http
-  selector:
-    app.kubernetes.io/name: admin-api
-    app.kubernetes.io/instance: release-name
----
 # Source: admin-api/templates/deployment.yaml
 apiVersion: apps/v1
 kind: Deployment
