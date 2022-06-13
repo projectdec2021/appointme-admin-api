@@ -69,7 +69,7 @@ spec:
   - port: 27017
     protocol: TCP
     targetPort: 27017
-    nodePort: 31056
+    nodePort: 31050
   selector:
     app: mongo
   type: LoadBalancer
