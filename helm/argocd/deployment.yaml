@@ -41,7 +41,7 @@ spec:
         - name: admin-api
           securityContext:
             {}
-          image: "oshokumar/appointme-admin-api:1.1"
+          image: "oshokumar/appointme-admin-api:1.2"
           imagePullPolicy: Always
           ports:
             - name: http
