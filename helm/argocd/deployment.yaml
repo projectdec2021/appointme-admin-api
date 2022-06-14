@@ -50,6 +50,25 @@ spec:
           resources:
             {}
 ---
+
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: admin-api
+  name: adminapi-lb
+spec:
+  ports:
+  - port: 30050
+    protocol: TCP
+    targetPort: 5050
+  selector:
+    app.kubernetes.io/name: admin-api
+  type: LoadBalancer
+status:
+  loadBalancer: {}
+  
+---
 # Source: admin-api/templates/tests/test-connection.yaml
 apiVersion: v1
 kind: Pod
