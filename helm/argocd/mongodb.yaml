@@ -1,6 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  creationTimestamp: null
   labels:
     app: mongo
   name: mongo
@@ -9,17 +10,28 @@ spec:
   selector:
     matchLabels:
       app: mongo
+  strategy: {}
   template:
     metadata:
-        labels:
-          app: mongo
+      creationTimestamp: null
+      labels:
+        app: mongo
     spec:
       containers:
       - image: mongo
         name: mongo
+        args: ["--dbpath","/data/db"]
         resources:
           limits:
             memory: "500Mi"
+        volumeMounts:
+        - name: "mongo-data-dir"
+          mountPath: "/data/db"
+      volumes:
+      - name: "mongo-data-dir"
+        persistentVolumeClaim:
+          claimName: "pvc"
+
 ---
 apiVersion: v1
 kind: Service
