@@ -30,7 +30,7 @@ spec:
       volumes:
       - name: "mongo-data-dir"
         persistentVolumeClaim:
-          claimName: "pvc"
+          claimName: "mongo-pvc1"
 
 ---
 apiVersion: v1
